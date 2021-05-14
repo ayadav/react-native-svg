@@ -38,7 +38,7 @@ export default function extractViewBox(props: {
 
   const params = (Array.isArray(viewBox)
     ? viewBox
-    : viewBox.trim().split(spacesRegExp)
+    : viewBox.trim().replace(/,/g, ' ').split(spacesRegExp)
   ).map(Number);
 
   if (params.length !== 4 || params.some(isNaN)) {
